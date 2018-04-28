@@ -36,4 +36,17 @@ public class ProductServiceImplTest {
                 new Product("KIM003", "Marijuana", "Let's meets your god", "KIM003.jpg", 20.0)));
     }
 
+    @Test
+    public void testGetAvailableProducts() {
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("KIM001", "Cocaine", "Im in love with the coco", "KIM001.jpg", 30.0));
+        mockProducts.add(new Product("KIM002", "Ecstasy", "It's great for creater", "KIM002.jpg", 35.0));
+        mockProducts.add(new Product("KIM003", "Marijuana", "Let's meets your god", "KIM003.jpg", 20.0));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getAllProducts(), hasItems(new Product("KIM001", "Cocaine", "Im in love with the coco", "KIM001.jpg", 30.0),
+                new Product("KIM002", "Ecstasy", "It's great for creater", "KIM002.jpg", 35.0),
+                new Product("KIM003", "Marijuana", "Let's meets your god", "KIM003.jpg", 20.0)));
+
+    }
+
 }
