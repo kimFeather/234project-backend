@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.hamcrest.Matchers.is;
 
 public class ProductServiceImplTest {
     ProductDao productDao;
@@ -47,6 +47,16 @@ public class ProductServiceImplTest {
                 new Product("KIM002", "Ecstasy", "It's great for creater", "KIM002.jpg", 35.0),
                 new Product("KIM003", "Marijuana", "Let's meets your god", "KIM003.jpg", 20.0)));
 
+    }
+
+    @Test
+    public void testGetUnavailableProductSize() {
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("KIM001", "Cocaine", "Im in love with the coco", "KIM001.jpg", 30.0));
+        mockProducts.add(new Product("KIM002", "Ecstasy", "It's great for creater", "KIM002.jpg", 35.0));
+        mockProducts.add(new Product("KIM003", "Marijuana", "Let's meets your god", "KIM003.jpg", 20.0));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getUnavailableProductSize(), is(0));
     }
 
 }
