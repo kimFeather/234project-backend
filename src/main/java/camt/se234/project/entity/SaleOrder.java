@@ -32,4 +32,37 @@ public class SaleOrder {
         }
         return totalPrice;
     }
+
+    public SaleOrder(String saleOrderId) {
+        this.saleOrderId = saleOrderId;
+    }
+
+    public SaleOrder(String saleOrderId, List<SaleTransaction> transactions) {
+        this.saleOrderId = saleOrderId;
+        this.transactions = transactions;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSaleOrderId() {
+        return saleOrderId;
+    }
+
+    public void setSaleOrderId(String saleOrderId) {
+        this.saleOrderId = saleOrderId;
+    }
+
+    public List<SaleTransaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<SaleTransaction> transactions) {
+        this.transactions = transactions;
+    }
 }
