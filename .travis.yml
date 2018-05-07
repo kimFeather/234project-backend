@@ -6,6 +6,7 @@ before_install:
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- chmod +x mvnw
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
