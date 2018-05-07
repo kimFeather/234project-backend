@@ -63,6 +63,6 @@ public class SaleOrderServiceImplTest {
         mockOrders.add(new SaleOrder("SaleOrder1", mockTransactions1));
         mockOrders.add(new SaleOrder("SaleOrder2", mockTransactions2));
         when(orderDao.getOrders()).thenReturn(mockOrders);
-        assertThat(saleOrderService.getAverageSaleOrderPrice(), is(closeTo(315.50, 0.01)));
+        assertThat(saleOrderService.getAverageSaleOrderPrice(), is(closeTo(226.25, 0.01)));
     }
 }
